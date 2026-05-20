@@ -108,29 +108,31 @@ def generate_p_q():
 # graphical interface
 # ========================================
 
-# Configuração da tela (Dark Mode) e cor dos botões
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")
+# Só executa a interface gráfica se este arquivo for executado diretamente, e não importado por outro módulo
+if __name__ == "__main__":
+    # Configuração da tela (Dark Mode) e cor dos botões
+    ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("blue")
 
-# Criando janela principal
-app = ctk.CTk()
-app.geometry("1240x600")
-app.title("Geração de P e Q (RSA)")
+    # Criando janela principal
+    app = ctk.CTk()
+    app.geometry("1240x600")
+    app.title("Geração de P e Q (RSA)")
 
-# Elementos visuais da interface gráfica
-title = ctk.CTkLabel(app, text = "Gerador de P e Q (RSA)", font = ("Arial", 20, "bold"))
-title.pack(pady = 30)
+    # Elementos visuais da interface gráfica
+    title = ctk.CTkLabel(app, text = "Gerador de P e Q (RSA)", font = ("Arial", 20, "bold"))
+    title.pack(pady = 30)
 
-instruction = ctk.CTkLabel(app, text="Clique no botão abaixo para gerar P e Q\nP e Q serão salvos em um arquivo '.txt'.", font=("Arial", 14))
-instruction.pack(pady = 5)
+    instruction = ctk.CTkLabel(app, text="Clique no botão abaixo para gerar P e Q\nP e Q serão salvos em um arquivo '.txt'.", font=("Arial", 14))
+    instruction.pack(pady = 5)
 
-# Botão que dispara a geração
-generate_button = ctk.CTkButton(app, text = "Gerar P e Q", command = generate_p_q)
-generate_button.pack(pady = 15)
+    # Botão que dispara a geração
+    generate_button = ctk.CTkButton(app, text = "Gerar P e Q", command = generate_p_q)
+    generate_button.pack(pady = 15)
 
-# Label para exibir o resultado ou carregamento
-label_result = ctk.CTkLabel(app, text = "", font = ("Arial", 14))
-label_result.pack(pady = 10)
+    # Label para exibir o resultado ou carregamento
+    label_result = ctk.CTkLabel(app, text = "", font = ("Arial", 14))
+    label_result.pack(pady = 10)
 
-# Mantém a janela rodando
-app.mainloop()
+    # Mantém a janela rodando
+    app.mainloop()

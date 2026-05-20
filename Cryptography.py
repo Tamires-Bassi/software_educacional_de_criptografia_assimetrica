@@ -33,11 +33,14 @@ def encrypt_message():
         
         # Exibindo uma mensagem de sucesso na tela oara o usuário
         label_result.configure(
-            text = f"Mensagem criptografada com sucesso e salva no arquivo 'Encrypted_Message.rsa'\n\nMensagem criptografada:\n\n{c}",
+            text = f"Mensagem criptografada com sucesso e salva no arquivo 'Encrypted_Message.rsa'",
             text_color = "green"
         )
     except FileNotFoundError:
         label_result.configure(text = "ERROR: O arquivo 'RSA_Keys.txt' não foi encontrado!\n\nGere as chaves RSA primeiro para criptografar uma mensagem!", text_color = "red")
+    except Exception as e:
+        # Se as chaves não baterem ou o arquivo de chaves for corrompido, exibe uma mensagem de erro para o usuário
+        label_result.configure(text="Erro de autenticação: As chaves não coincidem ou arquivo foi corrompido.", text_color="red")
 
 # ========================================
 # graphical interface
